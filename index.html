@@ -299,27 +299,27 @@
             // Display the result in human-readable form
             let result = '';
             if (years > 0) {
-                result += `${years} year${years > 1 ? 's' : ''}`;
+                result += `${years} Year${years > 1 ? 's' : ''}`;
             }
             if (months > 0) {
                 if (result) result += ', ';
-                result += `${months} month${months > 1 ? 's' : ''}`;
+                result += `${months} Month${months > 1 ? 's' : ''}`;
             }
 
-            // If the date is less than a month ago, return 'less than a month'
+            // If the date is less than a month ago, return '1 Month'
             if (!result) {
-                result = 'less than a month';
+                result = '1 Month';
             }
 
             return result;
         }
 
-	// Hardcoded date
-        const hardcodedDate = '2023-04-17';
+	// Current Tenure Start Date
+        const currentTenureStartDate = '2023-04-01';
 
         // Run the calculation when the page loads
         window.onload = function() {
-            const result = getTimeDifferenceInYearsAndMonths(hardcodedDate);
+            const result = getTimeDifferenceInYearsAndMonths(currentTenureStartDate);
             document.getElementById('currentTenure').textContent = `${result}`;
         };
     </script>
