@@ -143,7 +143,7 @@
                   <div class="w3-container">
                      <h5 class="w3-opacity"><b>Engineering Manager</b><span class="w3-margin-left"></span>CAVU</h5>
                      <h6 class="w3-text-dcw-colour">
-                        <span class="emp-dates"><i class="fa fa-calendar fa-fw pre-dates"> </i>Apr 2023 - Present</span>
+                        <span class="emp-dates"><i class="fa fa-calendar fa-fw pre-dates"> </i>Apr 2023 - Present | <span id="currentTenure"></span></span>
                         <span class="emp-location"><i class="fa fa-map-marker fa-fw"></i>Manchester, UK</span>
                      </h6>
                      <p>
@@ -279,4 +279,47 @@
          <a href="https://www.linkedin.com/in/davecwilson/" target="_blank" class=""><i class="fa fa-linkedin w3-hover-opacity"></i></a>
       </footer>
    </body>
+
+    <script>
+        // Function to calculate time difference in years and months
+        function getTimeDifferenceInYearsAndMonths(givenDate) {
+            const currentDate = new Date();
+            const startDate = new Date(givenDate);
+
+            // Calculate the difference in years
+            let years = currentDate.getFullYear() - startDate.getFullYear();
+
+            // Adjust the difference if the current month is before the given month
+            let months = currentDate.getMonth() - startDate.getMonth();
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Display the result in human-readable form
+            let result = '';
+            if (years > 0) {
+                result += `${years} year${years > 1 ? 's' : ''}`;
+            }
+            if (months > 0) {
+                if (result) result += ' and ';
+                result += `${months} month${months > 1 ? 's' : ''}`;
+            }
+
+            // If the date is less than a month ago, return 'less than a month'
+            if (!result) {
+                result = 'less than a month';
+            }
+
+            return result;
+        }
+
+        // Function triggered by the button to display the result
+        function calculateTimeDifference() {
+            const dateInput = '2023-04-17'
+            const result = getTimeDifferenceInYearsAndMonths(dateInput);
+	    document.getElementById('currentTenure').textContent = `${result}`;
+        }
+    </script>
+	
 </html>
