@@ -314,12 +314,14 @@
             return result;
         }
 
-        // Function triggered by the button to display the result
-        function calculateTimeDifference() {
-            const dateInput = '2023-04-17'
-            const result = getTimeDifferenceInYearsAndMonths(dateInput);
-	    document.getElementById('currentTenure').textContent = `${result}`;
-        }
+	// Hardcoded date
+        const hardcodedDate = '2023-04-17';
+
+        // Run the calculation when the page loads
+        window.onload = function() {
+            const result = getTimeDifferenceInYearsAndMonths(hardcodedDate);
+            document.getElementById('currentTenure').textContent = `${result}`;
+        };
     </script>
 	
 </html>
